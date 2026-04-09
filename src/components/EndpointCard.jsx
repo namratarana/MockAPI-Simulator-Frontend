@@ -8,7 +8,7 @@ const EndpointCard = ({ ep, onEdit, onDelete }) => (
     <div className="flex items-center gap-3 mb-4">
       <MethodBadge method={ep.method} />
       <div className="flex-1 bg-[#0e1320] border border-[#1e2740] rounded-lg px-4 py-2 font-mono text-sm text-slate-300 tracking-wide">
-        {ep.path}
+        {ep.url}
       </div>
       <div className="flex gap-2">
         <IconBtn onClick={() => onEdit(ep)} title="Edit" hoverClass="hover:border-blue-700 hover:text-blue-400">
@@ -27,13 +27,13 @@ const EndpointCard = ({ ep, onEdit, onDelete }) => (
 
     <p className="text-sm text-slate-400 mb-2">Response Data:</p>
     <pre className="bg-[#0e1320] border border-[#1e2740] rounded-lg px-4 py-3 m-0 font-mono text-xs text-slate-400 max-h-32 overflow-y-auto leading-relaxed">
-      {ep.responseData}
+      {ep.data}
     </pre>
 
     <div className="flex gap-4 mt-3 text-xs text-slate-600">
-      <span>Created: {ep.created}</span>
+      <span>Created: {ep.created_at}</span>
       <span>•</span>
-      <span>Updated: {ep.updated}</span>
+      <span>Updated: {ep.updated_at}</span>
     </div>
   </div>
 );

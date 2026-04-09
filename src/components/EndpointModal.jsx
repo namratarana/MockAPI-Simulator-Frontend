@@ -15,8 +15,8 @@ const EndpointModal = ({ mode, endpoint, onClose, onSave }) => {
     const isNew = mode === "new";
     const [form, setForm] = useState(
     isNew
-        ? { method: "GET", path: "", status: 200, responseData: "" }
-        : { method: endpoint.method, path: endpoint.path, status: endpoint.status, responseData: endpoint.responseData }
+        ? { method: "GET", url: "", status: 200, responseData: "" }
+        : { method: endpoint.method, url: endpoint.url, status: endpoint.status, responseData: endpoint.data }
     );
     const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
@@ -43,8 +43,8 @@ const EndpointModal = ({ mode, endpoint, onClose, onSave }) => {
                     </select>
                 </div>
                 <div className="flex-1">
-                    <label className="block text-xs text-slate-400 mb-1.5">Path</label>
-                    <input value={form.path} onChange={(e) => set("path", e.target.value)} placeholder="/api/resource" className={inputCls} />
+                    <label className="block text-xs text-slate-400 mb-1.5">URL</label>
+                    <input value={form.url} onChange={(e) => set("url", e.target.value)} placeholder="/api/resource" className={inputCls} />
                 </div>
             </div>
 
